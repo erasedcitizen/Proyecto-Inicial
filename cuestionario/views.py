@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import CuestionarioFormPag1, CuestionarioFormPag2
-from .models import Orientacion
+from .models import Universidad, Conflicto, Subconflicto, Orientacion
 
 SUBCATEGORIAS = {
     "academico": [
@@ -78,14 +78,36 @@ def cuestionariopaso2(request):
             universidad__codigo=universidad,
             conflicto__codigo=conflicto,
             subconflicto__codigo=subconflicto,
-            derechos__codigo=derechos,
         ).first()
+
+        if orientacion:
+            request.session["orientacion_id"] = orientacion.id
+
+        request.session["derechos"] = derechos
+        request.session["subconflicto"] = subconflicto
+
+        universidad_obj = Universidad.objects.get(
+            codigo=universidad
+        )
+
+        conflicto_obj = Conflicto.objects.get(
+            codigo=conflicto
+        )
+
+        subconflicto_obj = Subconflicto.objects.get(
+            codigo=subconflicto
+        )
 
         return render(
             request,
             "cuestionario/resultado.html",
             {
                 "orientacion": orientacion,
+                "derechos": derechos,
+
+                "universidad": universidad_obj.name,
+                "conflicto": conflicto_obj.name,
+                "subconflicto": subconflicto_obj.name,
             }
         )
 
@@ -93,4 +115,42 @@ def cuestionariopaso2(request):
         request,
         "cuestionario/cuestionario.html",
         {"form": form}
+    )
+
+
+def descarga(request):
+
+    orientacion_id = request.session.get("orientacion_id")
+
+    universidad_codigo = request.session.get("universidad")
+    conflicto_codigo = request.session.get("conflicto")
+    subconflicto_codigo = request.session.get("subconflicto")
+    derechos = request.session.get("derechos")
+
+    orientacion = Orientacion.objects.get(
+        id=orientacion_id
+    )
+
+    universidad = Universidad.objects.get(
+        codigo=universidad_codigo
+    )
+
+    conflicto = Conflicto.objects.get(
+        codigo=conflicto_codigo
+    )
+
+    subconflicto = Subconflicto.objects.get(
+        codigo=subconflicto_codigo
+    )
+
+    return render(
+        request,
+        "cuestionario/descarga.html",
+        {
+            "orientacion": orientacion,
+            "derechos": derechos,
+            "universidad": universidad.name,
+            "conflicto": conflicto.name,
+            "subconflicto": subconflicto.name,
+        }
     )

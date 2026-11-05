@@ -28,13 +28,6 @@ class Subconflicto(models.Model):
     def __str__(self):
         return self.name
 
-class Derechos(models.Model):
-    codigo = models.CharField(max_length=50, unique=True)
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
 class Orientacion(models.Model):
     universidad = models.ForeignKey(
         Universidad,
@@ -48,11 +41,6 @@ class Orientacion(models.Model):
 
     subconflicto = models.ForeignKey(
         Subconflicto,
-        on_delete=models.CASCADE
-    )
-
-    derechos = models.ForeignKey(
-        Derechos,
         on_delete=models.CASCADE
     )
 

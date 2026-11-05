@@ -12,6 +12,28 @@ Resultado
 
         <h1>{{ orientacion.titulo }}</h1>
 
+        <h2>Resumen de la consulta</h2>
+
+        <p>
+            <strong>Reporte generado:</strong>
+            {% now "d/m/Y H:i" %}
+        </p>
+
+        <p>
+            <strong>Universidad:</strong>
+            {{ universidad }}
+        </p>
+
+        <p>
+            <strong>Categoría:</strong>
+            {{ conflicto }}
+        </p>
+
+        <p>
+            <strong>Subconflicto:</strong>
+            {{ subconflicto }}
+        </p>
+
         <h2>Diagnóstico</h2>
         <p>{{ orientacion.diagnostico }}</p>
 
@@ -24,17 +46,38 @@ Resultado
         <h2>Pasos a seguir</h2>
         <p>{{ orientacion.pasos|linebreaks }}</p>
 
+        {% if derechos == "no" %}
+
+            <h2>¿Conoces tus derechos educacionales?</h2>
+
+            <p>
+                Como indicaste que no conoces tus derechos como estudiante,
+                te recomendamos revisar la siguiente información:
+            </p>
+
+            <p>
+                <a href="{% url 'derechos' %}">
+                    Derechos Educacionales de los Estudiantes
+                </a>
+            </p>
+
+        {% endif %}
+
     {% else %}
 
         <h1>No se encontraron resultados</h1>
 
         <p>
             No existe una orientación registrada para esta combinación
-            de respuestas, todavia no hemos registrado la combinación
-            en nuestra base de datos
+            de respuestas, todavía no hemos registrado la combinación
+            en nuestra base de datos.
         </p>
 
     {% endif %}
+
+    <a href="{% url 'descarga' %}" target="_blank">
+        Ver reporte imprimible
+    </a>
 
 </div>
 

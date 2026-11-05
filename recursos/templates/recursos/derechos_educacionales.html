@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Derechos Educacionales de los Estudiantes
+{% endblock %}
+
+{% block content %}
+
+<div class="derechos-container">
+
+    <h1>Derechos Educacionales de los Estudiantes</h1>
+
+    <p>
+        El enfoque de derechos en educación promueve que todos los estudiantes
+        tengan acceso a una educación de calidad.
+    </p>
+
+    <div class="derechos-card">
+        Esta sección resume los principales derechos educacionales de los estudiantes.
+    </div>
+
+    <h2>Acceso y Permanencia</h2>
+
+    <p>
+        Los estudiantes tienen derecho a no ser discriminados durante el proceso
+        de admisión ni durante su trayectoria educativa.
+    </p>
+
+    <p>
+        También tienen derecho a recibir atención y educación oportuna e inclusiva.
+    </p>
+
+    <h2>Educación de Calidad</h2>
+
+    <ul>
+        <li>Recibir una educación que favorezca la formación y el desarrollo integral.</li>
+        <li>Que se respete la integridad física, psicológica y moral.</li>
+        <li>Estudiar en un ambiente de aceptación y respeto mutuo.</li>
+        <li>Ser evaluado mediante un sistema objetivo y transparente.</li>
+    </ul>
+
+    <h2>Respeto a la Identidad</h2>
+
+    <ul>
+        <li>Respeto a las tradiciones y costumbres de origen.</li>
+        <li>Participar en actividades culturales, deportivas y recreativas.</li>
+        <li>Respeto a la libertad de conciencia.</li>
+        <li>Derecho a expresar opiniones.</li>
+        <li>Derecho a asociarse libremente.</li>
+    </ul>
+
+    <h2>Documento Completo</h2>
+
+    <p>
+        Si deseas revisar la información completa, puedes descargar el documento oficial:
+    </p>
+
+    <p>
+        <a href="{% static 'documents/Diptico_Derechos-Educacionales-de-Estudiantes_2017.pdf' %}"
+           target="_blank">
+            Descargar Díptico de Derechos Educacionales
+        </a>
+    </p>
+
+    <h2>Referencias</h2>
+
+    <ul class="referencias">
+
+        <li>
+            Superintendencia de Educación. (2017).
+            <em>Derechos y Deberes de Estudiantes</em>.
+            Gobierno de Chile.
+        </li>
+
+        <li>
+            Ministerio de Educación. (2009).
+            <em>Ley N.º 20.370: Establece la Ley General de Educación</em>.
+            Biblioteca del Congreso Nacional de Chile.
+        </li>
+
+</ul>
+</div>
+
+{% endblock %}

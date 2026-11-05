@@ -7,6 +7,7 @@ class CuestionarioFormPag1(forms.Form):
         help_text="Selecciona la institución a la que perteneces. (Solo en la Región de Valparaíso)",
         choices=[
             ("utfsm", "Universidad Técnica Federico Santa María"),
+            ("pucv", "Pontificia Universidad Católica de Valparaíso"),
         ],
         widget=forms.RadioSelect
     )
