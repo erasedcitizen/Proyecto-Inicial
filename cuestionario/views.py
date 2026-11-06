@@ -52,9 +52,11 @@ def cuestionariopaso1(request):
     return render(
         request,
         "cuestionario/cuestionario.html",
-        {"form": form}
+        {
+            "form": form,
+            "paso": 1,
+        }
     )
-
 
 def cuestionariopaso2(request):
 
@@ -114,7 +116,10 @@ def cuestionariopaso2(request):
     return render(
         request,
         "cuestionario/cuestionario.html",
-        {"form": form}
+        {
+            "form": form,
+            "paso": 2,
+        }
     )
 
 

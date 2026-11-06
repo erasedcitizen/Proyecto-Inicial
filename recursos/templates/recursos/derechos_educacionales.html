@@ -50,36 +50,47 @@ Derechos Educacionales de los Estudiantes
         <li>Derecho a asociarse libremente.</li>
     </ul>
 
-    <h2>Documento Completo</h2>
+    <div class="derechos-card">
 
-    <p>
-        Si deseas revisar la información completa, puedes descargar el documento oficial:
-    </p>
+        <h2>Documento Completo</h2>
 
-    <p>
-        <a href="{% static 'documents/Diptico_Derechos-Educacionales-de-Estudiantes_2017.pdf' %}"
+        <p>
+            Si deseas revisar la información completa, puedes descargar
+            el documento oficial utilizado como referencia.
+        </p>
+
+        <a class="action-link"
+           href="{% static 'documents/Diptico_Derechos-Educacionales-de-Estudiantes_2017.pdf' %}"
            target="_blank">
+
             Descargar Díptico de Derechos Educacionales
+
         </a>
-    </p>
 
-    <h2>Referencias</h2>
+    </div>
 
-    <ul class="referencias">
+    <div class="referencias">
 
-        <li>
-            Superintendencia de Educación. (2017).
-            <em>Derechos y Deberes de Estudiantes</em>.
-            Gobierno de Chile.
-        </li>
+        <h2>Referencias</h2>
 
-        <li>
-            Ministerio de Educación. (2009).
-            <em>Ley N.º 20.370: Establece la Ley General de Educación</em>.
-            Biblioteca del Congreso Nacional de Chile.
-        </li>
+        <ul>
 
-</ul>
+            <li>
+                Superintendencia de Educación. (2017).
+                <em>Derechos y Deberes de Estudiantes</em>.
+                Gobierno de Chile.
+            </li>
+
+            <li>
+                Ministerio de Educación. (2009).
+                <em>Ley N.º 20.370: Establece la Ley General de Educación</em>.
+                Biblioteca del Congreso Nacional de Chile.
+            </li>
+
+        </ul>
+
+    </div>
+
 </div>
 
 {% endblock %}

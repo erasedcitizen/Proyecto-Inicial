@@ -6,76 +6,122 @@ Resultado
 
 {% block content %}
 
-<div class="container">
+<div class="resultados-container">
 
     {% if orientacion %}
 
         <h1>{{ orientacion.titulo }}</h1>
 
-        <h2>Resumen de la consulta</h2>
+        <div class="resultado-resumen">
 
-        <p>
-            <strong>Reporte generado:</strong>
-            {% now "d/m/Y H:i" %}
-        </p>
+            <h2>Resumen de la consulta</h2>
 
-        <p>
-            <strong>Universidad:</strong>
-            {{ universidad }}
-        </p>
+            <p>
+                <strong>Reporte generado:</strong>
+                {% now "d/m/Y H:i" %}
+            </p>
 
-        <p>
-            <strong>Categoría:</strong>
-            {{ conflicto }}
-        </p>
+            <p>
+                <strong>Universidad:</strong>
+                {{ universidad }}
+            </p>
 
-        <p>
-            <strong>Subconflicto:</strong>
-            {{ subconflicto }}
-        </p>
+            <p>
+                <strong>Categoría:</strong>
+                {{ conflicto }}
+            </p>
 
-        <h2>Diagnóstico</h2>
-        <p>{{ orientacion.diagnostico }}</p>
+            <p>
+                <strong>Subconflicto:</strong>
+                {{ subconflicto }}
+            </p>
 
-        <h2>Departamento recomendado</h2>
-        <p>{{ orientacion.departamento }}</p>
+        </div>
 
-        <h2>Recursos</h2>
-        <p>{{ orientacion.recursos }}</p>
+        <div class="resultado-card">
 
-        <h2>Pasos a seguir</h2>
-        <p>{{ orientacion.pasos|linebreaks }}</p>
+            <h2>Diagnóstico</h2>
+
+            <p>
+                {{ orientacion.diagnostico }}
+            </p>
+
+        </div>
+
+        <div class="resultado-card">
+
+            <h2>Departamento recomendado</h2>
+
+            <p>
+                {{ orientacion.departamento }}
+            </p>
+
+        </div>
+
+        <div class="resultado-card">
+
+            <h2>Recursos</h2>
+
+            <p>
+                {{ orientacion.recursos }}
+            </p>
+
+        </div>
+
+        <div class="resultado-card">
+
+            <h2>Pasos a seguir</h2>
+
+            <p>
+                {{ orientacion.pasos|linebreaks }}
+            </p>
+
+        </div>
 
         {% if derechos == "no" %}
 
-            <h2>¿Conoces tus derechos educacionales?</h2>
+            <div class="resultado-card">
 
-            <p>
-                Como indicaste que no conoces tus derechos como estudiante,
-                te recomendamos revisar la siguiente información:
-            </p>
+                <h2>¿Conoces tus derechos educacionales?</h2>
 
-            <p>
-                <a href="{% url 'derechos' %}">
-                    Derechos Educacionales de los Estudiantes
-                </a>
-            </p>
+                <p>
+                    Como indicaste que no conoces tus derechos como estudiante,
+                    te recomendamos revisar la siguiente información:
+                </p>
+
+                <p>
+                    <a href="{% url 'derechos' %}">
+                        Derechos Educacionales de los Estudiantes
+                    </a>
+                </p>
+
+            </div>
 
         {% endif %}
 
     {% else %}
 
-        <h1>No se encontraron resultados</h1>
+        <div class="resultado-card">
 
-        <p>
-            No existe una orientación registrada para esta combinación
-            de respuestas, todavía no hemos registrado la combinación
-            en nuestra base de datos.
-        </p>
+            <h1>No se encontraron resultados</h1>
+
+            <p>
+                No existe una orientación registrada para esta combinación
+                de respuestas. Todavía no hemos registrado la combinación
+                en nuestra base de datos.
+            </p>
+
+            <p>
+                Te recomendamos revisar la sección de recursos disponibles.
+            </p>
+
+        </div>
 
     {% endif %}
 
-    <a href="{% url 'descarga' %}" target="_blank">
+    <a class="action-link"
+       href="{% url 'descarga' %}"
+       target="_blank">
         Ver reporte imprimible
     </a>
 

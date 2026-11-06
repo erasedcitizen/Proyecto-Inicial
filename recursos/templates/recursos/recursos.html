@@ -6,15 +6,32 @@ Recursos
 
 {% block content %}
 
-<h1>Centro de Recursos</h1>
+<div class="recursos-container">
 
-<p>
-    Encuentra información sobre derechos educacionales,
-    convivencia universitaria y procedimientos institucionales.
-</p>
+    <h1>Centro de Recursos</h1>
 
-<ul>
-    <li><a href="{% url 'derechos' %}">Derechos educacionales de los estudiantes</a></li>
-</ul>
+    <p>
+        Encuentra información sobre derechos educacionales,
+        convivencia universitaria y procedimientos institucionales.
+    </p>
+
+    <div class="resultado-card">
+
+        <h2>Derechos Educacionales de los Estudiantes</h2>
+
+        <p>
+            Conoce los principales derechos educacionales de los estudiantes,
+            incluyendo acceso y permanencia, educación de calidad,
+            respeto a la identidad y participación dentro de la comunidad educativa.
+        </p>
+
+        <a class="action-link"
+           href="{% url 'derechos' %}">
+            Ver recurso
+        </a>
+
+    </div>
+
+</div>
 
 {% endblock %}
