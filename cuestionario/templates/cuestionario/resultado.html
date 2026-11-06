@@ -97,33 +97,32 @@ Resultado
 
             </div>
 
+
         {% endif %}
+
+            <a class="action-link"
+            href="{% url 'descarga' %}"
+            target="_blank">
+                Ver reporte imprimible
+            </a>
 
     {% else %}
 
-        <div class="resultado-card">
+        <h1>No se encontraron resultados</h1>
 
-            <h1>No se encontraron resultados</h1>
+        <p>
+            No existe una orientación registrada para esta combinación
+            de respuestas. Todavía no hemos registrado la combinación
+            en nuestra base de datos.
+        </p>
 
-            <p>
-                No existe una orientación registrada para esta combinación
-                de respuestas. Todavía no hemos registrado la combinación
-                en nuestra base de datos.
-            </p>
+        <p>
+            Te recomendamos revisar la sección de recursos disponibles.
+        </p>
 
-            <p>
-                Te recomendamos revisar la sección de recursos disponibles.
-            </p>
-
-        </div>
 
     {% endif %}
 
-    <a class="action-link"
-       href="{% url 'descarga' %}"
-       target="_blank">
-        Ver reporte imprimible
-    </a>
 
 </div>
 

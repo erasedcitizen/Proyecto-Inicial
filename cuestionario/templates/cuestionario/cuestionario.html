@@ -8,50 +8,52 @@ Cuestionario
 
 <div class="container">
 
-    <p class="paso-indicador">
-        Paso {{ paso }} de 2
-    </p>
+    <div class="cuestionario-container">
 
-    <h1 class="page-title">
-
-        {% if paso == 1 %}
-            Información General
-        {% else %}
-            Detalles del Problema
-        {% endif %}
-
-    </h1>
-
-    <p class="intro">
-        Este cuestionario tiene como objetivo identificar la naturaleza
-        de tu situación y orientarte hacia los recursos o mecanismos
-        de apoyo disponibles en tu institución.
-    </p>
-
-    <form method="post">
-
-        <p class="disclaimer">
-            Las respuestas entregadas en este formulario serán utilizadas
-            únicamente con fines de orientación. Selecciona las alternativas
-            que mejor representen tu situación actual.
+        <p class="paso-indicador">
+            Paso {{ paso }} de 2
         </p>
 
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button type="submit">
+        <h1 class="page-title">
 
             {% if paso == 1 %}
-                Siguiente
+                Información General
             {% else %}
-                Recibir mi orientación
+                Detalles del Problema
             {% endif %}
 
-        </button>
+        </h1>
 
-    </form>
+        <p class="intro">
+            Este cuestionario tiene como objetivo identificar la naturaleza
+            de tu situación y orientarte hacia los recursos o mecanismos
+            de apoyo disponibles en tu institución.
+        </p>
 
+        <form method="post">
+
+            <p class="disclaimer">
+                Las respuestas entregadas en este formulario serán utilizadas
+                únicamente con fines de orientación. Selecciona las alternativas
+                que mejor representen tu situación actual.
+            </p>
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+
+                {% if paso == 1 %}
+                    Siguiente
+                {% else %}
+                    Recibir mi orientación
+                {% endif %}
+
+            </button>
+
+        </form>
+    </div>
 </div>
 
 {% endblock %}

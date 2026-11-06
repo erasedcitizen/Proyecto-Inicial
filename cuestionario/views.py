@@ -88,17 +88,17 @@ def cuestionariopaso2(request):
         request.session["derechos"] = derechos
         request.session["subconflicto"] = subconflicto
 
-        universidad_obj = Universidad.objects.get(
+        universidad_obj = Universidad.objects.filter(
             codigo=universidad
-        )
+        ).first()
 
-        conflicto_obj = Conflicto.objects.get(
+        conflicto_obj = Conflicto.objects.filter(
             codigo=conflicto
-        )
+        ).first()
 
-        subconflicto_obj = Subconflicto.objects.get(
+        subconflicto_obj = Subconflicto.objects.filter(
             codigo=subconflicto
-        )
+        ).first()
 
         return render(
             request,
@@ -107,9 +107,9 @@ def cuestionariopaso2(request):
                 "orientacion": orientacion,
                 "derechos": derechos,
 
-                "universidad": universidad_obj.name,
-                "conflicto": conflicto_obj.name,
-                "subconflicto": subconflicto_obj.name,
+                "universidad": universidad_obj.name if universidad_obj else universidad,
+                "conflicto": conflicto_obj.name if conflicto_obj else conflicto,
+                "subconflicto": subconflicto_obj.name if subconflicto_obj else subconflicto,
             }
         )
 
